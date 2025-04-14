@@ -4,47 +4,90 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "my-react-router-app",
+	"name": "trail-counter",
 	"compatibility_date": "2025-04-04",
 	"main": "./workers/app.ts",
-	"vars": {
-		"VALUE_FROM_CLOUDFLARE": "Hello from Cloudflare"
-	},
 	"observability": {
 		"enabled": true
+	},
+	"migrations": [
+		{
+			"tag": "v2",
+			"new_sqlite_classes": ["TrailDO", "RegistrationDO", "TemplateDO", "TrailManagerDO"]
+		}
+	],
+	"routes": [
+		 { 
+			"pattern": "trails.roseberryroad.com", 
+			"custom_domain": true
+		}
+	],
+	
+	/**
+	 * Environment-specific configurations
+	 */
+	"env": {
+		"development": {
+			"name": "trail-counter-development",
+			"vars": {
+				"ENVIRONMENT": "development"
+			},
+			"durable_objects": {
+				"bindings": [
+					{
+						"name": "TRAIL_DO",
+						"class_name": "TrailDO"
+					},
+					{
+						"name": "REGISTRATION_DO",
+						"class_name": "RegistrationDO"
+					},
+					{
+						"name": "TEMPLATE_DO",
+						"class_name": "TemplateDO"
+					},
+					{
+						"name": "TRAIL_MANAGER_DO",
+						"class_name": "TrailManagerDO"
+					}
+				]
+			}
+			// Local development configuration
+			// Note: Add development secrets with:
+			// wrangler secret put CLERK_SECRET_KEY --env development
+		},
+		"production": {
+			"name": "trail-counter",
+			"vars": {
+				"ENVIRONMENT": "production"
+			},
+			"durable_objects": {
+				"bindings": [
+					{
+						"name": "TRAIL_DO",
+						"class_name": "TrailDO"
+					},
+					{
+						"name": "REGISTRATION_DO",
+						"class_name": "RegistrationDO"
+					},
+					{
+						"name": "TEMPLATE_DO",
+						"class_name": "TemplateDO"
+					},
+					{
+						"name": "TRAIL_MANAGER_DO",
+						"class_name": "TrailManagerDO"
+					}
+				]
+			}
+			// Production configuration
+			// Note: Production secrets are added with:
+			// wrangler secret put CLERK_SECRET_KEY --env production
+		}
 	}
+	
 	/**
-	 * Smart Placement
-	 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
+	 * The following are shared between environments or are commented out
 	 */
-	// "placement": { "mode": "smart" },
-
-	/**
-	 * Bindings
-	 * Bindings allow your Worker to interact with resources on the Cloudflare Developer Platform, including
-	 * databases, object storage, AI inference, real-time communication and more.
-	 * https://developers.cloudflare.com/workers/runtime-apis/bindings/
-	 */
-
-	/**
-	 * Environment Variables
-	 * https://developers.cloudflare.com/workers/wrangler/configuration/#environment-variables
-	 */
-	// "vars": { "MY_VARIABLE": "production_value" },
-	/**
-	 * Note: Use secrets to store sensitive data.
-	 * https://developers.cloudflare.com/workers/configuration/secrets/
-	 */
-
-	/**
-	 * Static Assets
-	 * https://developers.cloudflare.com/workers/static-assets/binding/
-	 */
-	// "assets": { "directory": "./public/", "binding": "ASSETS" },
-
-	/**
-	 * Service Bindings (communicate between multiple Workers)
-	 * https://developers.cloudflare.com/workers/wrangler/configuration/#service-bindings
-	 */
-	// "services": [{ "binding": "MY_SERVICE", "service": "my-service" }]
 }
