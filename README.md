@@ -64,7 +64,7 @@ Trail Counter is a modern web application that simplifies trail registration for
 
 ## 🏗️ Architecture
 
-Trail Counter uses a serverless architecture built on Cloudflare Workers and Durable Objects, providing a scalable and resilient system. Read more about the architecture in the [ARCHITECTURE.MD](https://github.com/hexeth/blob/master/ARCHITECTURE.md)
+Trail Counter uses a serverless architecture built on Cloudflare Workers and Durable Objects, providing a scalable and resilient system. Read more about the architecture in the [ARCHITECTURE.MD](https://github.com/hexeth/trail-counter-react/blob/master/ARCHITECTURE.md)
 
 ## 🛠️ Getting Started
 
@@ -189,5 +189,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 <div align="center">
-  <sub>Built with ❤️ by [Your Name/Team]</sub>
+  <sub>Built with ❤️ for my mom</sub>
 </div>
