@@ -1,61 +1,61 @@
 {
-	"name": "Trail Counter Dev Environment",
-	"image": "mcr.microsoft.com/devcontainers/javascript-node:1-18-bullseye",
+  "name": "Trail Counter Dev Environment",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
 
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	"features": {
-		"ghcr.io/devcontainers/features/git:1": {},
-		"ghcr.io/devcontainers/features/github-cli:1": {}
-	},
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
 
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [5173, 8787, 3000],
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [5173, 8787, 3000],
 
-	// Configure tool-specific properties.
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"ms-vscode.vscode-typescript-next",
-				"bradlc.vscode-tailwindcss",
-				"esbenp.prettier-vscode",
-				"ms-vscode.vscode-json",
-				"formulahendry.auto-rename-tag",
-				"ms-vscode.vscode-eslint",
-				"ms-playwright.playwright",
-				"cloudflare.vscode-cloudflare-workers",
-				"ms-vscode.vscode-react",
-				"ms-vscode.vscode-css"
-			],
-			"settings": {
-				"editor.formatOnSave": true,
-				"editor.defaultFormatter": "esbenp.prettier-vscode",
-				"editor.codeActionsOnSave": {
-					"source.fixAll.eslint": "explicit"
-				},
-				"files.associations": {
-					"wrangler.json": "jsonc",
-					"wrangler.jsonc": "jsonc"
-				},
-				"typescript.preferences.includePackageJsonAutoImports": "auto",
-				"typescript.inlayHints.parameterNames.enabled": "all",
-				"typescript.inlayHints.functionLikeReturnTypes.enabled": true,
-				"typescript.suggest.autoImports": true,
-				"emmet.includeLanguages": {
-					"typescript": "html",
-					"typescriptreact": "html"
-				}
-			}
-		}
-	},
+  // Configure tool-specific properties.
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.vscode-typescript-next",
+        "bradlc.vscode-tailwindcss",
+        "esbenp.prettier-vscode",
+        "ms-vscode.vscode-json",
+        "formulahendry.auto-rename-tag",
+        "ms-vscode.vscode-eslint",
+        "ms-playwright.playwright",
+        "cloudflare.vscode-cloudflare-workers",
+        "ms-vscode.vscode-react",
+        "ms-vscode.vscode-css"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": "explicit"
+        },
+        "files.associations": {
+          "wrangler.json": "jsonc",
+          "wrangler.jsonc": "jsonc"
+        },
+        "typescript.preferences.includePackageJsonAutoImports": "auto",
+        "typescript.inlayHints.parameterNames.enabled": "all",
+        "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+        "typescript.suggest.autoImports": true,
+        "emmet.includeLanguages": {
+          "typescript": "html",
+          "typescriptreact": "html"
+        }
+      }
+    }
+  },
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "npm install && npm run cf-typegen",
+  // Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": "npm install && npm run cf-typegen",
 
-	// Comment out to run as root instead.
-	"remoteUser": "node",
+  // Comment out to run as root instead.
+  "remoteUser": "node",
 
-	// Environment variables
-	"containerEnv": {
-		"PUPPETEER_SKIP_DOWNLOAD": "true"
-	}
+  // Environment variables
+  "containerEnv": {
+    "PUPPETEER_SKIP_DOWNLOAD": "true"
+  }
 }
