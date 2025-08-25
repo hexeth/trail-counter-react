@@ -80,7 +80,7 @@ export default function HorseRegistration({ onSubmitRegistration, trailInfo }: R
   }
 
   // Title text based on trail info
-  const titleText = trailInfo ? `${trailInfo.name} Trail Registration` : "Trail Registration"
+  const titleText = trailInfo ? `${trailInfo.name} Trail Confirmation` : "Trail Confirmation"
   const welcomeText = trailInfo 
     ? `Welcome to ${trailInfo.name}! How many horses in your group?` 
     : "Welcome to the trail! How many horses in your group?"
@@ -243,7 +243,7 @@ export default function HorseRegistration({ onSubmitRegistration, trailInfo }: R
                   animate={{ scale: [1, 1.05, 1] }}
                   transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
                 >
-                  Yee-haw! Registration Complete!
+                  Yee-haw! Confirmation Complete!
                 </motion.h3>
 
                 <motion.p
