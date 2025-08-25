@@ -4,7 +4,7 @@
 
 A QR code-based registration system for horse riders on trails, built with React Router, shadcn/ui, and Cloudflare Workers.
 
-<div align="center" >
+<div align="center">
 
 [Report Bug](https://github.com/hexeth/trail-counter-react/issues) | [Request Feature](https://github.com/hexeth/trail-counter-react/issues)
 
